@@ -27,6 +27,17 @@ public class Homework_2 {
         return summRekursiv(array, i + 1, summ);
     }
 
+    //private static int summArray(int[] array, int index) {
+    //    if (index < 0) {
+    //        return 0;
+    //    }
+    //    if (index == 0) {
+    //        return array[0];
+    //    }
+    //
+    //    return array[index] + summArray(array, index - 1);
+    //}
+
     private static int searchMaxElement(int[] array, int index, int max) {
         max = Math.max(array[index], max);
         if (index == array.length - 1) {
@@ -35,4 +46,11 @@ public class Homework_2 {
         return searchMaxElement(array, index + 1, max);
 
     }
+
+    //private static int maxArray(int[] array, int index) {
+    //        if (index == 0) {
+    //            return array[0];
+    //        }
+    //        return Math.max(array[index], maxArray(array, index - 1));
+    //    }
 }
