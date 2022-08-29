@@ -149,19 +149,23 @@ public class MyLinkedList implements MyList {
     @Override
     public Iterator<Integer> iterator() {
         return new Iterator<Integer>() {
+            private int position = 0;
+
 
             @Override
             public boolean hasNext() {
-                return false;
+                return position++ < size()-1 ;
             }
 
             @Override
             public Integer next() {
-                return 0;
+
+                return  get(position);
             }
 
             @Override
             public void remove() {
+                MyLinkedList.this.delete(get(position));
 
             }
         };
@@ -214,16 +218,14 @@ public class MyLinkedList implements MyList {
         l.addFirst(44);
         l.addFirst(33);
         System.out.println(l);
-        l.removeFirst();
-        l.removeFirst();
+        System.out.println("____________");
+        Iterator<Integer> iterator2 = l.iterator();
+        System.out.println(iterator2.hasNext());
+        System.out.println(iterator2.next());
+        iterator2.remove();
         System.out.println(l);
-        System.out.println(l.getFirst());
-        l.delete(2);
-        System.out.println(l);
-        Iterator<Integer> iterator = new MyLinkedList().iterator();
-        iterator.next();
-        iterator.remove();
-        System.out.println(l);
+
+
 
 
     }
