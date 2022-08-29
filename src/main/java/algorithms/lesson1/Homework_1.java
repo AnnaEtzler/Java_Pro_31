@@ -25,10 +25,7 @@ public class Homework_1 {
                 }
             }
         }
-        int count = 0;
-       for (String s: surname){
-           System.out.println(++count + ") " + s);
-       }
+        printArray(surname);
 
         System.out.println();
 
@@ -47,14 +44,19 @@ public class Homework_1 {
             surname[maxPos] = temp;
         }
 
-        int count2 = 0;
-        for (String s: surname){
-            System.out.println(++count2 + ") " + s);
-        }
+        printArray(surname);
+
+
     }
 
 
-
+    private static void printArray(String[] surname) {
+        int count = 0;
+        for ( String s : surname ) {
+            System.out.println(++count + ") " + s);
+        }
+        System.out.println();
+    }
 
 
 }
