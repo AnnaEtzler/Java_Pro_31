@@ -1,9 +1,11 @@
 package lesson8.homework7;
 
+import lesson7.homework.MyList;
+
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class MyCustomArrayList implements AdvancedArrayList {
+public class MyCustomArrayList  {
     private static final int INITIAL_CAPACITY = 4;
     private int [] data;
     private int size = 0; // "видимый" для пользователя размер массива
@@ -13,33 +15,33 @@ public class MyCustomArrayList implements AdvancedArrayList {
         data = new int[INITIAL_CAPACITY];
     }
 
-    @Override
+
     public void set(int index, int value) {
         if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
         data[index] = value;
     }
 
-    @Override
+
     public int get(int index) {
         if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
         return data[index];
     }
 
-    @Override
+
     public int size() {
         return size;
     }
 
-    @Override
+
     public void append(int value) {
         if(size == data.length)
             increaseCapacity();
         data[size++] = value;
     }
 
-    @Override
+
     public void append(int[] a) {
         for (int i = 0; i < a.length; i++) {
             append(a[i]);
@@ -56,7 +58,7 @@ public class MyCustomArrayList implements AdvancedArrayList {
 
 
 
-    @Override
+
     public void insert(int index, int value) {
         if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
@@ -69,7 +71,7 @@ public class MyCustomArrayList implements AdvancedArrayList {
         size++;
     }
 
-    @Override
+
     public void delete(int index) {
         if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
@@ -90,7 +92,7 @@ public class MyCustomArrayList implements AdvancedArrayList {
         System.out.println(Arrays.toString(data));
     }
 
-    @Override
+
     public boolean contains(int value) {
         for (int i = 0; i < size; i++) {
             if(value == data[i])
@@ -99,7 +101,7 @@ public class MyCustomArrayList implements AdvancedArrayList {
         return false;
     }
 
-    @Override
+
     public Iterator iterator() {
         return new Iterator() {
             private int position = 0;
@@ -115,7 +117,7 @@ public class MyCustomArrayList implements AdvancedArrayList {
 
             @Override
             public void remove() {
-                MyCustomArrayList.this.delete(position--);
+                delete(position--);
             }
         };
     }

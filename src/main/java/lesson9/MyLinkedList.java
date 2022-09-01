@@ -75,6 +75,11 @@ public class MyLinkedList implements MyList {
     }
 
     @Override
+    public void remove(int index) {
+
+    }
+
+
     public void delete(int value) {
         Node nodePrev = head;
         Node node = head.getNext();
@@ -125,7 +130,7 @@ public class MyLinkedList implements MyList {
         }
     }
 
-    @Override
+
     public void addFirst(int value) {
 
         Node nNew = new Node(value);
@@ -135,13 +140,13 @@ public class MyLinkedList implements MyList {
 
     }
 
-    @Override
+
     public void removeFirst() {
         head = head.getNext();
 
     }
 
-    @Override
+
     public int getFirst() {
         return head.getValue();
     }

@@ -41,7 +41,7 @@ public class MyListSimpleImplementation implements MyList{
         return data[index];
     }
 
-    @Override
+
     public void delete(int index) {
 
     }
@@ -68,17 +68,17 @@ public class MyListSimpleImplementation implements MyList{
 
     }
 
-    @Override
+
     public void addFirst(int value) {
 
     }
 
-    @Override
+
     public void removeFirst() {
 
     }
 
-    @Override
+
     public int getFirst() {
         return 0;
     }

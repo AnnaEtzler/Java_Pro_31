@@ -4,31 +4,24 @@ import java.util.*;
 
 public class ArrayApp {
     public static void main(String[] args) {
-        Set<String> s = new HashSet<>();
 
 
-        MyCustomArrayList l = new MyCustomArrayList();
-        int [] a = new int[] {11,12,13,14};
-        l.append(a);
+
+        HomeworkList l = new HomeworkList();
+
+        l.add(1);
+        l.add(1);
+        l.add(12);
+        l.add(13);
         Iterator<Integer> myIterator = l.iterator();
         l.print();
-        int k = 0;
-        while (myIterator.hasNext()) {
-            k = myIterator.next();
-            if (l.get(k) == 14) {
-                myIterator.remove();
-
-                break;
-
-            }
-        }
+        myIterator.hasNext();
+        myIterator.hasNext();
+        myIterator.remove();
         l.print();
 
-        myIterator.remove();
 
-        for (int i: l) {
-            System.out.println("myList " + l.get(i));
-        }
+
 
 
 
