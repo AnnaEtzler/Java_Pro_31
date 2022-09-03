@@ -25,7 +25,8 @@ public class MergeSort {
         }
         mergeSort(left, mid);
         mergeSort(right, length - mid);
-        merge(left, right, array);
+       //merge(left, right, array);
+        merge2(left, right, array);
 
     }
 
@@ -37,10 +38,12 @@ public class MergeSort {
             if (indexOne < one.length && indexTwo < two.length) {
                 int elementOne = one[indexOne];
                 int elementTwo = two[indexTwo];
-                if (elementOne > elementTwo) {
+                if (elementOne < elementTwo) {
+
                     array[i] = elementOne;
                     indexOne++;
                 } else {
+
                     array[i] = elementTwo;
                     indexTwo++;
                 }
@@ -55,6 +58,30 @@ public class MergeSort {
                 indexTwo++;
             }
 
+        }
+
+    }
+
+    private static void merge2(int[] one, int[] two, int[] array){
+        int indexOne = 0;
+        int indexTwo = 0;
+        int i = 0;
+        while (indexOne < one.length && indexTwo < two.length){
+            if(one[indexOne] < two[indexTwo]){
+
+                array[i++] = one[indexOne++];
+            } else {
+
+                array[i++] = two[indexTwo++];
+            }
+        }
+
+        while (indexOne < one.length){
+            array[i++] = one[indexOne++];
+
+        }
+        while(indexTwo < two.length){
+            array[i++] = two[indexTwo++];
         }
 
     }
