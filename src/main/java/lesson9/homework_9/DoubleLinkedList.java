@@ -7,6 +7,11 @@ public class DoubleLinkedList {
     private Node tail;
 
 
+
+
+
+
+
     public void addLast(int value){
         if(head == null)
         {
@@ -105,5 +110,23 @@ public class DoubleLinkedList {
         }
 
     }
+
+    public int get(int index) {
+        Node node = getNodeByIndex(index);
+        return node != null ? node.getValue() : 0;
+    }
+
+    private Node getNodeByIndex(int index)
+    {
+      Node node = head;
+        while (node != null && index > 0)
+        {
+            index--;
+            node = node.getNext();
+        }
+        return node;
+    }
+
+
 
 }

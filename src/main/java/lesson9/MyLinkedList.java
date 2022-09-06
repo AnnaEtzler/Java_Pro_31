@@ -75,9 +75,31 @@ public class MyLinkedList implements MyList {
     }
 
     @Override
-    public void remove(int index) {
-
+    public void remove(int index) { // delete
+        // 0 - удаляем head
+        // другие
+        Node n = head;
+        if(index == 0 && head != null)
+        {
+            head = n.getNext();
+            return;
+        }
+        while (n != null) // не head
+        {
+            if(index == 1) // считаем до предыдущего элемента
+            {
+                Node toRemove = n.getNext();
+                if(toRemove == null)
+                    return;
+                Node next = toRemove.getNext();
+                n.setNext(next);
+                return;
+            }
+            index--;
+            n = n.getNext();
+        }
     }
+
 
 
     public void delete(int value) {
@@ -175,6 +197,31 @@ public class MyLinkedList implements MyList {
             }
         };
     }
+
+    //@Override
+    //    public Iterator<Integer> iterator() {
+    //        return new Iterator<Integer>() {
+    //
+    //            private int position = -1;
+    //
+    //            @Override
+    //            public boolean hasNext() {
+    //                // убедиться что следующая позиция после position лежить внутри size
+    //                // после этой операции двинуть позицию вперед
+    //                return position++ + 1 < size();
+    //            }
+    //
+    //            @Override
+    //            public Integer next() {
+    //                return get(position);
+    //            }
+    //
+    //            @Override
+    //            public void remove() {
+    //                MyLinkedList.this.remove(position--);
+    //            }
+    //        };
+    //    }
 
     static class Node {
         private int value;
