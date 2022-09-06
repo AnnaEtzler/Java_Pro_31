@@ -22,7 +22,6 @@ public class Homework_3 {
         if (n > array.length) {
             return array[0] + n + array.length - 1;
         }
-
         int count = 1;
         for (int i = 0; i < array.length - 1; i++) {
             int difference = array[i + 1] - array[i];

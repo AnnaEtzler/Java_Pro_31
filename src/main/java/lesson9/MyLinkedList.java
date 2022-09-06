@@ -215,6 +215,8 @@ public class MyLinkedList implements MyList {
         l.add(1);
         l.add(2);
         l.add(3);
+        l.add(4);
+        l.delete(3);
         System.out.println(l);
         System.out.println(l.size());
         System.out.println(l.get(2));
