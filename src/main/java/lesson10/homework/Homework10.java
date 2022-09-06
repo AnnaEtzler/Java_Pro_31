@@ -12,7 +12,7 @@ public class Homework10 {
         Set<String> setCountry = new HashSet<String>(List.of(country));
         setWord.retainAll(setCountry);
 
-        for (String s : setWord){
+        for (String s : word){
             if(!s.startsWith("A")){
                 setWord.remove(s);
             }
