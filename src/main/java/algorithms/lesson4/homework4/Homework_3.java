@@ -9,7 +9,9 @@ package algorithms.lesson4.homework4;
 public class Homework_3 {
     public static void main(String[] args) {
         int[] array = new int[]{4, 7, 9, 10, 14};
+
         int n = 5;
+
         int result = missingElement(array, n);
         System.out.println(result);
 
