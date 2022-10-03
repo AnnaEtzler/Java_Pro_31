@@ -5,8 +5,8 @@ import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Lesson_11 {
-// Queue - очередь - позволяет с конца очереди лиюо добавить элемент с конца очереди, либо забрать его из начала
+public class Queue_Exception {
+// Queue - очередь - позволяет либо добавить элемент с конца очереди, либо забрать его из начала
 // First-in First-out FIFO
 // добавление
 // boolean add(String s)  выбрасывает IllegalStateException если не тместа в очереди
@@ -19,9 +19,9 @@ public class Lesson_11 {
 
 // возврат элемента
 // String element() возвращает первый элемент и если очередь пуста выбрасывает исклюение NoSuchElementException
-//  String poll() если очередь пуста возвращает null иначе возвращает первый элемент
+//  String peek() если очередь пуста возвращает null иначе возвращает первый элемент
 public static void main(String[] args) {
-    hello();
+
     Queue<String> queue = new LinkedList<>();
     queue.add("Ann");
     queue.add("Max");
@@ -43,6 +43,16 @@ public static void main(String[] args) {
     System.out.println(pqueue.remove());
     System.out.println(pqueue.remove());
     System.out.println(pqueue.remove());
+
+    try {
+        hello();
+    } catch (NoSuchElementException | IllegalArgumentException e){
+        System.out.println("Go an exception " + e.getClass() + " " + e.getMessage());
+    } catch (Exception e){
+        System.out.println("miau");
+
+    }
+    System.out.println("weiter");
 }
  public static  void hello() throws NoSuchElementException{
      Queue<String> queue = new LinkedList<>();
@@ -54,7 +64,7 @@ public static void main(String[] args) {
      System.out.println(queue.remove());
      System.out.println(queue.remove());
 
-     System.out.println(queue.remove());
+     throw new IllegalArgumentException("exept text");
 
  }
 
