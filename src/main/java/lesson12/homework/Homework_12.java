@@ -35,6 +35,15 @@ public class Homework_12 {
     //First level: Напишите функцию для сравнения двух сетов - boolean checkSets(Set s1, Set s2)
 // - использовать любые операции кроме Set.equals()
     public static boolean checkSets(Set<String> s1, Set<String> s2) {
+        if(s1 == s2){
+            return true;
+        }
+        if(s1 == null || s2 == null){
+            return false;
+        }
+        if(s1.size() != s2.size()){
+            return false;
+        }
         Iterator iterator = s1.iterator();
         int count = 0;
         while (iterator.hasNext()) {
@@ -44,6 +53,9 @@ public class Homework_12 {
             }
         }
         return count == s1.size();
+        //Set<String> s3 = new HashSet<>(s1);
+        //s3.retainAll(s2);
+       // return  s3.size() == 0;
     }
 
     //Напишите  функцию, которая ищет самую длинную последовательность четных чисел
