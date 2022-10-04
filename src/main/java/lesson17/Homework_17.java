@@ -12,8 +12,8 @@ public class Homework_17 {
         System.out.println(result2);
         int [] array = {5,7,12, 1,10};
         int number = 10;
-        System.out.println(test(array, number));
-        System.out.println(test2(array, number));
+        System.out.println("test 1 " + test(array, number));
+        System.out.println("test 2 " + test2(array, number));
 
     }
 
