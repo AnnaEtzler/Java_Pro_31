@@ -1,7 +1,7 @@
 package lesson17;
 
 
-
+import java.util.Arrays;
 
 public class Homework_17 {
     public static void main(String[] args) {
@@ -10,9 +10,10 @@ public class Homework_17 {
         System.out.println(result);
         String result2 = decode(result);
         System.out.println(result2);
-        int [] array = {5,7,12, 4,3};
-        int number = 12;
+        int [] array = {5,7,12, 1,10};
+        int number = 10;
         System.out.println(test(array, number));
+        System.out.println(test2(array, number));
 
     }
 
@@ -67,6 +68,41 @@ public class Homework_17 {
         }
         return false;
 
+    }
+
+    public static boolean test2(int [] array, int number) {
+        Arrays.sort(array);
+        System.out.println(Arrays.toString(array));
+        int mid = number/2;
+        mid = search(array, mid);
+
+        for(int i = 0; i < mid; i++){
+            if((array[i]*array[mid] == number) || (array[i] == 1) && (array[search(array,number)] == number)){
+                return true;
+            }
+            mid--;
+        }
+
+        return false;
+    }
+
+    private static int search(int[] array, int z) {
+        int low = 0;
+        int high = array.length - 1;
+        int mid = 0;
+        while (low <= high) {
+            mid = low + (high - low) / 2;
+
+            if (array[mid] == z) {
+
+                return mid;
+            }
+            if (array[mid] > z) {
+                high = mid - 1;
+            } else low = mid + 1;
+
+        }
+        return mid;
     }
 
 
