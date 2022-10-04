@@ -4,6 +4,7 @@ public class Lesson_3_1 {
     public static void main(String[] args) {
         int[] arr = {96, 20, 5, 15, 7, 156};
         int maxElement = maxArray(arr, 0, arr.length);
+        System.out.println(maxElement);
     }
 
     private static int maxArray(int[] array, int index, int end) {
