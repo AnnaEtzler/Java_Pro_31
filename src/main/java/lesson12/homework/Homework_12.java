@@ -1,18 +1,10 @@
 package lesson12.homework;
 
 import java.util.*;
-//
-//
-//Second level: * Напишите в CustomArrayDeque итератор для перебора в обратном направлении
-//
-//
-//
-//Напишите в CustomArrayDeque итератор для перебора по убыванию значений элементов.
-//
-//
-
+//Second level: * Напишите в CustomArrayDeque итератор для перебора в обратном направлени
+// Напишите в CustomArrayDeque итератор для перебора по убыванию значений элементов.
 public class Homework_12 {
-
+// First level
     public static void main(String[] args) {
         Set<String> s1 = new HashSet<>();
         s1.add("a");

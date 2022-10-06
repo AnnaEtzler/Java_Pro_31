@@ -1,4 +1,4 @@
-package lesson12.homework;
+package lesson12;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

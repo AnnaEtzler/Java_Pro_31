@@ -1,6 +1,6 @@
 package lesson11;
 
-import lesson12.homework.ExeptionTester;
+import lesson12.ExeptionTester;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

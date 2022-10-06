@@ -1,7 +1,5 @@
-package lesson13.homework;
-//First level: В классе Employee есть поля int id, String name, int age, int salary.
-// Допишите геттеры и конструктор.
-//
+package lesson13;
+
 //
 //Сделайте класс Employee Comparable по id
 //

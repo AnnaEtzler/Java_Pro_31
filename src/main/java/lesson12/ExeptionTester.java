@@ -1,4 +1,4 @@
-package lesson12.homework;
+package lesson12;
 
 public class ExeptionTester {
     public static void main(String[] args) /*throws MyException*/ {
