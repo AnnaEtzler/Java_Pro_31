@@ -15,6 +15,8 @@ public class MyLinkedList {
         head = node;
         size++;
 
+
+
     }
     // O(1) it use additional variable with link to last element
     //O(n) Time complexity
@@ -135,6 +137,19 @@ public class MyLinkedList {
         }
         return result;
 
+
+    }
+    public boolean isCycle(){
+        Node node = head;
+        int index = size;
+        while (node != null && index > 0) {
+            index--;
+            node = node.getNext();
+        }
+        if(node.getNext() != null){
+            return true;
+        }
+        return false;
 
     }
 }

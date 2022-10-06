@@ -1,5 +1,12 @@
 package algorithms.lesson8.linkedList;
-
+////Second level: Задача:
+////Написать метод, который будет проверять наличие цикла в связном спиcке.(возвращает true или false)
+////Как понять это есть цикл ?
+////Для данной задачи, цикл - когда последний элемент связного списка ссылается
+////не на null, а на какой либо предыдущий элемент.
+////Пример :
+////Список без цикла : // 1 - 2 -3 - 4 - 5
+////Список с циклом : // 1 - 2 -3 - 4 - 5 - 3
 public class ListApp {
     public static void main(String[] args) {
         MyLinkedList myLinkedList = new MyLinkedList();
@@ -12,6 +19,7 @@ public class ListApp {
         System.out.println(myLinkedList.get(1));
         System.out.println(myLinkedList.get(2));
         System.out.println(myLinkedList.get(3));
+        System.out.println(myLinkedList.isCycle());
 
 
 
