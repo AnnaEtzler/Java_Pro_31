@@ -1,4 +1,4 @@
-package algorithms.linkedList;
+package algorithms.lesson8.linkedList;
 
 public class MyLinkedList {
     private Node head;
@@ -76,6 +76,65 @@ public class MyLinkedList {
             number--;
         }
         return node.getData();
+
+    }
+
+    public void pushToIndex(int index, int data){
+        Node node = head;
+        Node prev = null;
+        while (node != null && index > 0) {
+            index--;
+            prev = node;
+            node = node.getNext();
+        }
+        Node nodeNew = new Node(data);
+        nodeNew.setNext(node);
+        if(prev == null){
+            head = nodeNew;
+            return;
+        }
+        prev.setNext(nodeNew);
+
+    }
+
+
+    public void remove(int index){
+        if(index >= size){
+            System.out.println("index должен быть < size");
+            return;
+        }
+        Node node = head;
+        Node prev = null;
+        while (node != null && index > 0) {
+            index--;
+            prev = node;
+            node = node.getNext();
+        }
+        if(prev == null){
+            head = node.getNext();
+            return;
+        }
+
+        prev.setNext(node.getNext());
+
+
+
+    }
+    public int get(int index) {
+        Node node = head;
+        while (node != null && index > 0) {
+            index--;
+            node = node.getNext();
+        }
+        int result;
+        try {
+            result = node.getData();
+        } catch (NullPointerException e) {
+            System.out.print("Элемента не существует ");
+            result=  -1;
+        }
+        return result;
+
 
     }
 }
