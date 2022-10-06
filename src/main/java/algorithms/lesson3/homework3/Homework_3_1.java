@@ -7,7 +7,7 @@ public class Homework_3_1 {
 
     public static void main(String[] args) {
         int x = 3;
-        int n = 4;
+        int n = 6;
         System.out.println(task1_1(x, n));
         System.out.println(task1_2(x, n));
 

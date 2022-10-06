@@ -85,4 +85,32 @@ public class MergeSort {
         }
 
     }
+
+    /* for ( int i = 0; i < array.length; i++ ) {
+            if (indexOne < one.length && indexTwo < two.length) {
+                int elementOne = one[indexOne];
+                int elementTwo = two[indexTwo];
+                if (elementOne > elementTwo) {
+                    array[i] = elementOne;
+                    indexOne++;
+                } else {
+                    array[i] = elementTwo;
+                    indexTwo++;
+                }
+            } else {
+                if (indexOne < one.length) {
+                    array[i] = one[indexOne++];
+                } else {
+                    array[i] = two[indexTwo++];
+                }
+            }
+
+     */
+
+
+
+
+
+
 }
+

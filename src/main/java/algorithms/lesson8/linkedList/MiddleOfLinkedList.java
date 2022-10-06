@@ -1,4 +1,4 @@
-package algorithms.linkedList;
+package algorithms.lesson8.linkedList;
 
 public class MiddleOfLinkedList {
     public static void main(String[] args) {

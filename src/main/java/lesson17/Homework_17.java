@@ -76,8 +76,10 @@ public class Homework_17 {
         int mid = number/2;
         mid = search(array, mid);
 
+        int num = search(array,number);
+
         for(int i = 0; i < mid; i++){
-            if((array[i]*array[mid] == number) || (array[i] == 1) && (array[search(array,number)] == number)){
+            if((array[i]*array[mid] == number) || (array[i] == 1) && (array[num] == number)){
                 return true;
             }
             mid--;
