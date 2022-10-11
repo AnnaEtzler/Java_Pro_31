@@ -10,8 +10,8 @@ public class Homework_17 {
         System.out.println(result);
         String result2 = decode(result);
         System.out.println(result2);
-        int [] array = {5,7,12, 1,10};
-        int number = 10;
+        int [] array = {5,7,12, 2};
+        int number = 60;
         System.out.println("test 1 " + test(array, number));
         System.out.println("test 2 " + test2(array, number));
 
@@ -79,7 +79,7 @@ public class Homework_17 {
         int num = search(array,number);
 
         for(int i = 0; i < mid; i++){
-            if((array[i]*array[mid] == number) || (array[i] == 1) && (array[num] == number)){
+            if((array[i]*array[mid] == number) || ((array[i] == 1) && (array[num] == number))){
                 return true;
             }
             mid--;

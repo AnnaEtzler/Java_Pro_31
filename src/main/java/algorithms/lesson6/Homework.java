@@ -9,4 +9,7 @@ package algorithms.lesson6;
 //
 //Second level: 2.Написать class DynamicArrayIterator для DynamicArray (сделать свой итератор для своего динамического массива.)
 public class Homework {
+    public static void main(String[] args) {
+
+    }
 }
