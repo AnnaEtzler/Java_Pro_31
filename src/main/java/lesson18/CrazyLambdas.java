@@ -32,12 +32,7 @@ public class CrazyLambdas {
      */
     public static Predicate<String> isEmptyPredicate() {
         //throw new UnsupportedOperationException("It's your job to implement this method"); // todo
-        return new Predicate<String>() {
-            @Override
-            public boolean test(String s) {
-                return s.isEmpty();
-            }
-        };
+        return String::isEmpty;
     }
 
     /**
@@ -68,8 +63,7 @@ public class CrazyLambdas {
      */
     public static Function<BigDecimal, String> toDollarStringFunction() {
       //  throw new UnsupportedOperationException("It's your job to implement this method"); // todo
-        Function<BigDecimal, String> f = bigDecimal -> "$" + bigDecimal.toString();
-        return f;
+        return bigDecimal -> "$" + bigDecimal.toString();
     }
 
     /**
@@ -187,12 +181,7 @@ public class CrazyLambdas {
         return new UnaryOperator<Function<String, String>>() {
             @Override
             public Function<String, String> apply(Function<String, String> stringStringFunction) {
-                return new Function<String, String>() {
-                    @Override
-                    public String apply(String s) {
-                        return "";
-                    }
-                };
+                return stringStringFunction.compose(String::strip);
             }
         };
     }
@@ -210,7 +199,9 @@ public class CrazyLambdas {
         return new Supplier<Thread>() {
             @Override
             public Thread get() {
-                return new Thread(runnable);
+                Thread t = new Thread(runnable);
+                t.start();
+                return t ;
             }
         };
     }
@@ -225,7 +216,7 @@ public class CrazyLambdas {
         return new Consumer<Runnable>() {
             @Override
             public void accept(Runnable runnable) {
-                runnable.run();
+                new Thread(runnable).start();
 
             }
         };
@@ -246,7 +237,9 @@ public class CrazyLambdas {
                 return new Supplier<Thread>() {
                     @Override
                     public Thread get() {
-                        return new Thread(runnable);
+                        Thread t = new Thread(runnable);
+                        t.start();
+                        return t;
                     }
                 };
             }
@@ -312,21 +305,6 @@ public class CrazyLambdas {
      */
     public static Supplier<Supplier<Supplier<String>>> trickyWellDoneSupplier() {
         //throw new UnsupportedOperationException("It's your job to implement this method"); // todo
-        return new Supplier<Supplier<Supplier<String>>>() {
-            @Override
-            public Supplier<Supplier<String>> get() {
-                return new Supplier<Supplier<String>>() {
-                    @Override
-                    public Supplier<String> get() {
-                        return new Supplier<String>() {
-                            @Override
-                            public String get() {
-                                return "WELL DONE!";
-                            }
-                        };
-                    }
-                };
-            }
-        };
+        return () -> () -> () -> "WELL DONE!";
     }
 }
