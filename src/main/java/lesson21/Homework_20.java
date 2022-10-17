@@ -19,6 +19,14 @@ public class Homework_20 {
                 "И повторится всё, как встарь:",
                 "Ночь, ледяная рябь канала,",
                 "Аптека, улица, фонарь.");
+        List<String> list2 = List.of(
+                "You love me" ,
+                "You hate me" ,
+                "I don’t care" ,
+                "You want me" ,
+                "You love me" ,
+                "You hate me"
+               );
         list = list.stream().map(x -> x.replaceAll("[—.,:-]", "")).collect(Collectors.toList());
         System.out.println(list);
         // interface Collector<T, A, R>
@@ -63,6 +71,48 @@ public class Homework_20 {
                     }
                 });
         System.out.println(result);
+
+
+
+        list2 = list2.stream().map(x -> x.replaceAll("[—.,:-]", "").toLowerCase()).collect(Collectors.toList());
+        System.out.println(list2);
+        Map<String, List<Integer>> result2 = list2.stream()
+                .collect(new Collector<String, Map<String, List<Integer>>, Map<String, List<Integer>>>() {
+                    @Override
+                    public Supplier<Map<String, List<Integer>>> supplier() {
+                        return HashMap::new;
+                    }
+                    static int num = 1;
+                    @Override
+                    public BiConsumer<Map<String, List<Integer>>, String> accumulator() {
+                        return (map, str) -> {
+                            String[] array = str.split(" ");
+                            for (int i = 0; i < array.length; i++) {
+                                List<Integer> li = map.containsKey(array[i]) ? map.get(array[i]) : new ArrayList<>();
+                                li.add(num);
+                                map.put(array[i], li);
+                            }
+                            num++;
+                        };
+                    }
+
+                    @Override
+                    public BinaryOperator<Map<String, List<Integer>>> combiner() {
+                        return null;
+                    }
+
+                    @Override
+                    public Function<Map<String, List<Integer>>, Map<String, List<Integer>>> finisher() {
+                        return map -> map;
+                    }
+
+                    @Override
+                    public Set<Characteristics> characteristics() {
+                        return Set.of(Characteristics.UNORDERED, Characteristics.IDENTITY_FINISH);
+                    }
+                });
+
+        System.out.println(result2);
 
     }
 }
