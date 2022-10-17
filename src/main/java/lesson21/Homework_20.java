@@ -71,6 +71,7 @@ public class Homework_20 {
                     }
                 });
         System.out.println(result);
+        System.out.println();
 
 
 
