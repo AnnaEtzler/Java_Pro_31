@@ -14,6 +14,8 @@ public class CustomArrayDeque implements CustomDeque{
         sorce = new int[CAPACITY];
 
     }
+
+
     @Override
     public void addFirst(int i) {
         if(size == sorce.length){

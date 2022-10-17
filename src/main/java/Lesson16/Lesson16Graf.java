@@ -28,6 +28,9 @@ public class Lesson16Graf {
         MyBinaryTree tree = new MyBinaryTree(v0);
         System.out.println(tree.countVertices());
         System.out.println(tree);
+        System.out.println(tree.depth());
 
     }
+
+
 }

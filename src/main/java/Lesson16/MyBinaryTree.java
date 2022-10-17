@@ -10,6 +10,11 @@ public class MyBinaryTree {
     public MyBinaryTree() {
     }
 
+    public int depth(){
+        // вернуть глубину дерева
+        return root.depth();
+    }
+
     public int countVertices() {
 
         return root.countVertices();
@@ -43,17 +48,22 @@ public class MyBinaryTree {
             b.append("}");
             return b.toString();
         }
+
+        public int depth(){
+            // вернуть глубину дерева
+            return 1 + Math.max((left == null ? 0  : left.depth()), (right == null ? 0 : right.depth()));
+        }
         public int countVertices() {
             return 1 + (left == null ? 0 : left.countVertices())
                     + (right == null ? 0 : right.countVertices());
         }
 
-        public int depth(){
-            // вернуть глубину дерева
-            return 0;
-        }
+
+
 
     }
+
+
 
     @Override
     public String toString() {

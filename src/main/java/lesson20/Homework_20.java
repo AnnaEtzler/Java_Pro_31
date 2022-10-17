@@ -1,6 +1,7 @@
 package lesson20;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Homework_20 {
     // Напишите функцию которая принимает на вход список строк
@@ -28,10 +29,25 @@ public class Homework_20 {
                 "В глуши, в деревне всё вам скучно,\n" +
                 "А мы… ничем мы не блестим,\n" +
                 "Хоть вам и рады простодушно.";
-
-
-
         System.out.println("количество уникальных слов в списке " + uniqueWord(s));
+
+        List<String> lines = Arrays.asList(
+                "Духовной жаждою томим,",
+                "В пустыне мрачной я влачился, —",
+                "И шестикрылый серафим",
+                "На перепутье мне явился.",
+                "Перстами легкими как сон",
+                "Моих зениц коснулся он.",
+                "Отверзлись вещие зеницы,",
+                "Как у испуганной орлицы.",
+                "Моих ушей коснулся он, —",
+                "И их наполнил шум и звон:",
+                "И внял я неба содроганье,"
+        );
+
+        long res = countUniqueWords(lines);
+
+        System.out.println(res);
 
     }
 
@@ -57,5 +73,21 @@ public class Homework_20 {
 
 
         return result.size();
+    }
+
+
+    //     Напишите функцию которая принимает на вход список строк - например,
+    //     строчки из книги. Функция должна подсчитать количество уникальных слов
+    //     в списке. Считаем что слова отделяются друг от друга пробелами.
+    public static long countUniqueWords(Collection<String> lines)
+    {
+        return
+                lines.stream()
+                        .map(s -> s.replaceAll("[—.,:-]", ""))
+                        .map(s -> s.replaceAll("\s+", " "))
+                        .map(String::toLowerCase)
+                        .flatMap(s -> Arrays.stream(s.split(" ")))
+                        .distinct()
+                        .count();
     }
 }
