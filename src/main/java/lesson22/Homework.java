@@ -11,8 +11,6 @@ import java.util.logging.Logger;
 public class Homework {
     public static void main(String[] args) {
         Cat cat = new Cat("Barsik", 3, "brown");
-
-
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         String s = gson.toJson(cat);
@@ -31,7 +29,6 @@ public class Homework {
         StringBuilder sb = new StringBuilder();
         try (FileReader fileReader = new FileReader("catJSON.json")) {
             while (fileReader.ready()) {
-
                 sb.append((char) fileReader.read());
             }
         } catch (FileNotFoundException e) {

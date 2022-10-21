@@ -24,6 +24,26 @@ public class MyHashMap implements MyMap{
             this.value = value;
             this.next = next;
         }
+
+        public String getKey() {
+            return key;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        public Pair getNext() {
+            return next;
+        }
+
+        public void setNext(Pair next) {
+            this.next = next;
+        }
     }
         
 
@@ -45,7 +65,25 @@ public class MyHashMap implements MyMap{
         
     }
 
-    private void resize() {
+    private void resize()
+    {
+        // нужно создать новый массив длины в два раза больше чем source
+        // пробежаться по всем корневым элементам и перенести их
+        // в нужные бакеты нового массива
+        Pair [] newSource = new Pair[source.length * 2]; // новый массив
+        for(Pair p : source) // корень текущего
+        {
+            Pair c = p;
+            while (c != null) // текущая пара
+            {
+                Pair n  = c.next;
+                int bucket = Math.abs(c.key.hashCode()) % newSource.length;
+                c.next = newSource[bucket];
+                newSource[bucket] = c;
+                c = n;
+            }
+        }
+        source = newSource;
     }
 
     private int findBucket(String key) {
@@ -75,13 +113,65 @@ public class MyHashMap implements MyMap{
 
     @Override
     public String remove(String key) {
+        if(this.contains(key)){
+            int i = findBucket(key);
+            Pair p = source[i];
+            if(p.getKey().equals(key)){
+                source[i] = p.getNext();
+                p.setNext(null);
+                --size;
+                return key;
+            }
+
+
+            while (p.getNext() != null){
+                Pair pairNext = p.getNext();
+                if (pairNext.getKey().equals(key)){
+                    p.setNext(pairNext.getNext());
+                    pairNext.setNext(null);
+                    --size;
+                    return key;
+                }
+                p = pairNext;
+
+            }
+            return key;
+        }
         return null;
     }
 
+    /*@Override
+    public String remove(String key) {
+        int bucket = findBucket(key);
+        Pair c = source[bucket];
+        if(c == null)
+            return null;
+        if(c.key.equals(key))
+        {
+            source[bucket]  = c.next;
+            size--;
+            return c.value;
+        }
+        while (c.next != null)
+        {
+            if(c.next.key.equals(key))
+            {
+                Pair toDelete = c.next;
+                c.next = toDelete.next;
+                size--;
+                return toDelete.value;
+            }
+            c = c.next;
+        }
+        return null;
+    }
+*/
+
     @Override
     public boolean contains(String key) {
-        return false;
+        return this.get(key) != null;
     }
+
 
     @Override
     public int size() {

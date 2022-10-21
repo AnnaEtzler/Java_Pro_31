@@ -40,7 +40,7 @@ public class Homework_20 {
                     @Override
                     public Supplier<Map<String, List<Integer>>> supplier() {
                         return HashMap::new;
-                    }
+                    } // выхывается первым и создает коллецутю для аккумулятора
                     static int num = 1;
                     @Override
                     public BiConsumer<Map<String, List<Integer>>, String> accumulator() {
@@ -63,8 +63,12 @@ public class Homework_20 {
                     @Override
                     public Function<Map<String, List<Integer>>, Map<String, List<Integer>>> finisher() {
                         return map -> map;
+                                //Function.identity(); // что даю на вход то и возвращаю
                     }
 
+                    // Characteristics.UNORDERED - элементы возвращаются в произвольном порядке
+                    // Characteristics.IDENTITY_FINISH - функция finisher ничего не делает и поэтому может не вызываться
+                    // Characteristics.CONCURRENT - можно выпонять аккумуляцию в нескольких потоках (Thread)
                     @Override
                     public Set<Characteristics> characteristics() {
                         return Set.of(Characteristics.UNORDERED, Characteristics.IDENTITY_FINISH);
@@ -75,6 +79,14 @@ public class Homework_20 {
 
 
 
+        foo(list2);
+        foo(list);
+
+
+
+    }
+
+    public static Map<String, List<Integer>> foo(List<String> list2){
         list2 = list2.stream().map(x -> x.replaceAll("[—.,:-]", "").toLowerCase()).collect(Collectors.toList());
         System.out.println(list2);
         Map<String, List<Integer>> result2 = list2.stream()
@@ -83,7 +95,7 @@ public class Homework_20 {
                     public Supplier<Map<String, List<Integer>>> supplier() {
                         return HashMap::new;
                     }
-                    static int num = 1;
+                    int num = 1;
                     @Override
                     public BiConsumer<Map<String, List<Integer>>, String> accumulator() {
                         return (map, str) -> {
@@ -115,7 +127,10 @@ public class Homework_20 {
 
         System.out.println(result2);
 
+        return result2;
+
     }
+
 }
 
 

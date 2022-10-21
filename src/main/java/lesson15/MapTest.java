@@ -27,32 +27,39 @@ public class MapTest {
     // vasya.hashCode() == konstantin.hashCode != vasya.eqals(konstantin)=true
     // vasya.eqals(konstantin)==true -> vasya.hashCode() == konstantin.hashCode()
 
-        Map<String, String> capitals = new HashMap<>();
+        MyHashMap capitals = new MyHashMap();
         capitals.put("Germany", "Berlin");
-        System.out.println(capitals.get("Germany"));
-        System.out.println(capitals.get("Belgium"));
-        capitals.put("Germany", "Frankfurt");
-        System.out.println(capitals.get("Germany"));
-        capitals.remove("Germany");
-        System.out.println(capitals.get("Germany"));
-        System.out.println(capitals.size());
         capitals.put("GB", "London");
+        capitals.put("France", "Paris");
+        capitals.put("Luxemburg", "Luxemburg");
+        capitals.put("Spain", "Madrid");
+        System.out.println(capitals.contains("GB"));
+        System.out.println(capitals.remove("GB"));
+        System.out.println(capitals.contains("GB"));
 
-        Iterator<Map.Entry<String, String>> it = capitals.entrySet().iterator();
+
+
+
+
+
+      /*  Iterator<Map.Entry<String, String>> it = capitals.entrySet().iterator();
         while (it.hasNext()){
             Map.Entry<String, String> e = it.next();
-            System.out.println(e.getKey() );
-        }
+            System.out.print(e.getKey() + " " );
+        }*/
 
-        String string = "performs the given action for each entry in this map until " +
+
+
+
+    /*    String string = "performs the given action for each entry in this map until " +
                 "all entries have been processed or the action throws an exception";
 
         Map<String, Integer> map = foo(string);
-        System.out.println(map);
+        System.out.println(map);*/
 
 
     }
-
+// сколько раз данное слово встречется в тексте
     private static Map foo(String string) {
         Map<String, Integer> map = new HashMap<>();
         String [] array = string.split(" ");
