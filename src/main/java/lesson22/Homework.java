@@ -11,7 +11,9 @@ import java.util.logging.Logger;
 public class Homework {
     public static void main(String[] args) {
         Cat cat = new Cat("Barsik", 3, "brown");
-        GsonBuilder gsonBuilder = new GsonBuilder();
+        Cat c = getEmployeeFromFile("catJSON.json", Cat.class);
+        System.out.println(c);
+       /* GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         String s = gson.toJson(cat);
         System.out.println(s);
@@ -27,7 +29,9 @@ public class Homework {
         }
         System.out.println("Чтение из файла catJSON.json");
         StringBuilder sb = new StringBuilder();
-        try (FileReader fileReader = new FileReader("catJSON.json")) {
+        try (FileReader fileReader = new FileReader("catJSON.json"); BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+
+
             while (fileReader.ready()) {
                 sb.append((char) fileReader.read());
             }
@@ -38,9 +42,47 @@ public class Homework {
         }
 
         Cat catFromJSON = gson.fromJson(sb.toString(), Cat.class);
-        System.out.println(catFromJSON.toString());
+        System.out.println(catFromJSON.toString());*/
 
 
+    }
+
+    public static <T>  T getEmployeeFromFile(String filename, Class<T> clazz)
+    {
+        Gson gson = new Gson();
+        Cat employee = null;
+        try(
+                FileReader fileReader = new FileReader(filename);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+        )
+        {
+            employee = gson.fromJson(bufferedReader, Cat.class);
+        }
+        catch (Exception e)
+        {
+            System.err.println("exception: " + e.getMessage());
+        }
+        return (T) employee;
+    }
+
+    public static Cat getEmployeeFromFile2(String filename)
+    {
+        Gson gson = new Gson();
+        try(
+                FileReader fileReader = new FileReader(filename);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+        )
+        {
+            StringBuilder b = new StringBuilder();
+            bufferedReader.lines().forEach(
+                    line -> b.append(line)
+            );
+        }
+        catch (Exception e)
+        {
+            System.err.println("exception: " + e.getMessage());
+        }
+        return null;
     }
 }
 
