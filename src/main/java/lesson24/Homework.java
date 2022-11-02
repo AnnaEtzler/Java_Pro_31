@@ -44,7 +44,7 @@ public class Homework {
     //** Напишите функцию-аналог dir или ls -l - должна принимать на вход путь к директории.
     //В выводе должны присутствовать типы файлов (d для директории и - для обычного файла),
     // размер файла и название. Также добавьте правильный формат строк (printf(…)) (до 1.11)
-    public static void task2(String path){
+    private static void task2(String path){
         File file  = new File(path);
         File [] fileList = file.listFiles();
 
