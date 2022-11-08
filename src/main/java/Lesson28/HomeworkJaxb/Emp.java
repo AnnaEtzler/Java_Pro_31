@@ -1,8 +1,8 @@
 package Lesson28.HomeworkJaxb;
 
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.*;
 
+@XmlType(propOrder = {"name", "surname", "position", "salary"})
 public class Emp {
     private String id;
     private String name;
@@ -17,7 +17,9 @@ public class Emp {
         this.salary = salary;
         this.id = id;
     }
-
+    public String getId() {
+        return id;
+    }
     @XmlAttribute(name = "ID")
     public void setId(String id) {
         this.id = id;
@@ -59,7 +61,5 @@ public class Emp {
         this.salary = salary;
     }
 
-    public String getId() {
-        return id;
-    }
+
 }

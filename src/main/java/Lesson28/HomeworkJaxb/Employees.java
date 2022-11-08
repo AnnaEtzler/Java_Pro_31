@@ -1,13 +1,12 @@
 package Lesson28.HomeworkJaxb;
 
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.*;
 import retrofit2.http.GET;
 
 import java.util.List;
 
 @XmlRootElement(name = "EMPLOYEES")
+
 public class Employees {
     private String nameOfFirma;
     private List<Emp> emps;
@@ -20,7 +19,14 @@ public class Employees {
     public Employees() {
 
     }
+    @XmlAttribute(name = "Firma")
+    public void setNameOfFirma(String nameOfFirma) {
+        this.nameOfFirma = nameOfFirma;
+    }
 
+    public String getNameOfFirma() {
+        return nameOfFirma;
+    }
     public List<Emp> getEmps() {
         return emps;
     }
@@ -30,12 +36,7 @@ public class Employees {
         this.emps = emps;
     }
 
-    public String getNameOfFirma() {
-        return nameOfFirma;
-    }
 
-    @XmlAttribute(name = "Firma")
-    public void setNameOfFirma(String nameOfFirma) {
-        this.nameOfFirma = nameOfFirma;
-    }
+
+
 }

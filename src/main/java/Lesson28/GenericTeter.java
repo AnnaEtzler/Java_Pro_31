@@ -8,6 +8,11 @@ import java.util.stream.Collectors;
 
 public class GenericTeter {
     public static void main(String[] args) {
+        List<Integer> integerList = new ArrayList<>( List.of(1,2,3,4,5) );
+        printNumberList(integerList); // не компилируется
+// внутри функции из списка только достают элементы
+        /*
+
         List list = new ArrayList();
         list.add("hello");
         String hello = (String) list.get(0);
@@ -24,8 +29,14 @@ public class GenericTeter {
         System.out.println(fromArrayToList(new String[] {"Anna", "Bob", "Crishtian"}, string -> string.length() ));
 
         //fromArrayToList(new String[] {"Anna", "Bob", "Crishtian"});
-
+*/
     }
+
+    public static <T> void printNumberList(List<T> numberList)
+    {
+        numberList.forEach(
+                n -> System.out.println("number is: " + n)
+        );}
 
     public static <T extends Number> List<T> fromArrayToList(T [] a)
     {
@@ -59,4 +70,5 @@ public class GenericTeter {
     public static void logDoubleValue(Double d){
         System.out.println("This is a Double " + d);
     }
+
 }
