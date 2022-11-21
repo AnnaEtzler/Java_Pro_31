@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<EMPLOYEES Firma="Google">
+    <EMP ID="1234">
+        <NAME>Bob</NAME>
+        <SURNAME>Smith</SURNAME>
+        <POSITION>HR manager</POSITION>
+        <SALARY>7000</SALARY>
+    </EMP>
+    <EMP ID="4321">
+        <NAME>Angela</NAME>
+        <SURNAME>Merkel</SURNAME>
+        <POSITION>Informatikerin</POSITION>
+        <SALARY>10000</SALARY>
+    </EMP>
+    <EMP ID="7777">
+        <NAME>Kot</NAME>
+        <SURNAME>Matroskin</SURNAME>
+        <POSITION>Boss</POSITION>
+        <SALARY>100000</SALARY>
+    </EMP>
+</EMPLOYEES>

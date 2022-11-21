@@ -1,0 +1,17 @@
+mysql> use library
+Database changed
+mysql> select * from cliente;
++----+--------+--------------+-------------+----------+---------------------------------------------+
+| id | name   | surname      | book_amount | phone    | address                                     |
++----+--------+--------------+-------------+----------+---------------------------------------------+
+|  1 | Alena  | Ivanova      |           2 |   299234 |                                             |
+|  2 | Dmitry | Kuznesov     |           0 |   564738 | Novi Urengoi, Klubnichnaya street 5, room 7 |
+|  3 | Leo    | Li           |           1 |    19238 |                                             |
+|  4 | Karl   | Lagerfeld    |           2 | 99992222 | Paris Elle street 3                         |
+|  5 | Tom    | Smith        |           5 |   442255 | Berlin                                      |
+|  7 | Kater  | Vasillievich |           1 | 65748392 |                                             |
+|  8 | Karina | Diel         |           2 |  2995762 | Kassel Frankfurter strasse 4                |
++----+--------+--------------+-------------+----------+---------------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!
