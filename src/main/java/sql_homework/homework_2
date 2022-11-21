@@ -15,3 +15,26 @@ mysql> select id, name, surname, book_amount from cliente;
 7 rows in set (0.00 sec)
 
 mysql> Terminal close -- exit!
+mysql> create table books (
+    -> id int,
+    -> name varchar(255) not null,
+    -> id_from_person int,
+    -> date_of_return int );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from books;
+Empty set (0.00 sec)
+
+mysql> insert into books
+    -> values (1, "The Adventures of Tom Sawyer", null, null);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from books;
++------+------------------------------+----------------+----------------+
+| id   | name                         | id_from_person | date_of_return |
++------+------------------------------+----------------+----------------+
+|    1 | The Adventures of Tom Sawyer |           NULL |           NULL |
++------+------------------------------+----------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> Terminal close -- exit!
