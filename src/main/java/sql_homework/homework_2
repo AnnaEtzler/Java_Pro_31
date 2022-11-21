@@ -1,0 +1,17 @@
+mysql> use library
+Database changed
+mysql> select id, name, surname, book_amount from cliente;
++----+--------+--------------+-------------+
+| id | name   | surname      | book_amount |
++----+--------+--------------+-------------+
+|  1 | Alena  | Ivanova      |           2 |
+|  2 | Dmitry | Kuznesov     |           0 |
+|  3 | Leo    | Li           |           1 |
+|  4 | Karl   | Lagerfeld    |           2 |
+|  5 | Tom    | Smith        |           5 |
+|  7 | Kater  | Vasillievich |           1 |
+|  8 | Karina | Diel         |           2 |
++----+--------+--------------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!
