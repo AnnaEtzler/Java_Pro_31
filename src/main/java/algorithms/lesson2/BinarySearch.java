@@ -1,5 +1,5 @@
 package algorithms.lesson2;
-
+//https://www.examclouds.com/ru/java/java-core-russian/arrays-binarysearch
 public class BinarySearch {
 
     public static void main(String[] args) {
