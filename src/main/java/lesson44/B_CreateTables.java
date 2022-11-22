@@ -19,5 +19,9 @@ public class B_CreateTables {
         } catch (SQLException e) {
             System.err.println("SQLException " + e.getMessage());
         }
+
+
+
+
     }
 }

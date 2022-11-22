@@ -1,4 +1,4 @@
-package lesson44;
+package lesson44.homework;
 
 import java.sql.*;
 
