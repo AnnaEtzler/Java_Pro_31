@@ -19,6 +19,9 @@ public class Homework_Streams {
 
 //С помощью Stream-ов отсортируйте список строк, сравнив их по подстрокам со ВТОРОГО символа по последний.
 // Т.е., для элемента "Max" подстрока для сравнения должна быть "ax".
+        List<String> names = List.of("Anna", "Max", "Bob");
+        names.stream().sorted(Comparator.comparing(o -> (o.substring(1, o.length())))).forEach(System.out::println);
+
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(List.of("Anna", "Max", "Bob")); // ax nna ob
 
@@ -30,7 +33,7 @@ public class Homework_Streams {
 
         ArrayList <String> a = new ArrayList(List.of("ABBA", "baba", "odddo", "qwerty"));
         a.stream().
-                filter(s -> {return new StringBuilder(s).reverse().toString().equals(s);})
+                filter(s -> {return new StringBuilder(s).reverse().toString().equalsIgnoreCase(s);})
                 .forEach(System.out::println);
     }
 

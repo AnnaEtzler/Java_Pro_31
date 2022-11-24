@@ -4,16 +4,24 @@ import java.sql.*;
 
 public class Homework {
     public static void main(String[] args) {
+        Integer snum = 1039;
+        String sname = "Bob";
+        String citytext = "Paris";
+        Integer comm = 20;
         String url = "jdbc:sqlite:shop.db"; // shop.db - название файла
         try (
                 // установление соединения с базой данных
                 Connection conn = DriverManager.getConnection(url);
                 // Statement - запрос - "sql запрос" - sql команда
-                Statement stmt = conn.createStatement();
+                PreparedStatement stmt = conn.prepareStatement("insert into salespeople values (?, ?, ?, ?);")
         )
         {
 
-           stmt.execute("insert into salespeople values (1005, 'Bob', 'Paris', 20);");
+           stmt.setInt(1, snum);
+           stmt.setString(2, sname);
+           stmt.setString(3, citytext);
+           stmt.setInt(4, comm);
+           stmt.execute();
             System.out.println("salespeople inserted.");
 
 
