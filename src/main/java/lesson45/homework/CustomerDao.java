@@ -33,7 +33,7 @@ public class CustomerDao {
 
     }
 
-    public Customer save(Customer customer) throws SQLException {
+    public void save(Customer customer) throws SQLException {
         insertStatement.setInt(1, customer.getId());
         insertStatement.setString(2, customer.getName());
         insertStatement.setString(3, customer.getCity());
@@ -43,7 +43,7 @@ public class CustomerDao {
 
 
 
-        return customer;
+      //  return customer;
     }
 
     public List<Customer> getAll() throws SQLException {

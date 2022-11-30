@@ -17,8 +17,8 @@ public class DaoTester {
 
         System.out.println("_______________________");
         CustomerDao customerDao = new CustomerDao();
-       // Customer kot = new Customer(4003, "Kot", "Berlin", 150, 4031);
-       // customerDao.save(kot);
+       Customer kot = new Customer(4099, "Kotik", "Wolfsburg", 100, 4001);
+       customerDao.save(kot);
 
        // customerDao.delete(kot);
 
@@ -29,8 +29,8 @@ public class DaoTester {
 
 
         OrderDao orderDao = new OrderDao();
-        Order order = new Order(3999, 124365, "2020-03-24",4003,  4006);
-        orderDao.save(order);
+      //  Order order = new Order(3999, 124365, "2020-03-24",4003,  4006);
+      //  orderDao.save(order);
 
 
         List<Order> allOrders = orderDao.getAll();

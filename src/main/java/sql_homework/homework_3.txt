@@ -1,0 +1,101 @@
+№1
+
+mysql> use library
+Database changed
+mysql> select name, surname, age, "external_worker" as type from external_worker
+    -> union all
+    -> select name, surname, age, "client" as type from cliente
+    -> union all
+    -> select n, surn, age, "internal_worker" as type from internal_worker
+    -> ;
++----------+--------------+------+-----------------+
+| name     | surname      | age  | type            |
++----------+--------------+------+-----------------+
+| Peter    | Petrov       |   24 | external_worker |
+| Alina    | Petrova      |   24 | external_worker |
+| Mariya   | Kotikova     |   42 | external_worker |
+| Violetta | M?ller       |   60 | external_worker |
+| Kazimir  | Kazimov      |   45 | external_worker |
+| Alena    | Ivanova      | NULL | client          |
+| Dmitry   | Kuznesov     | NULL | client          |
+| Leo      | Li           |   22 | client          |
+| Karl     | Lagerfeld    | NULL | client          |
+| Tom      | Smith        |   92 | client          |
+| Kater    | Vasillievich | NULL | client          |
+| Karina   | Diel         | NULL | client          |
+| Albert   | Gimalaev     |   30 | internal_worker |
+| Alla     | Kirkorova    |   66 | internal_worker |
+| Vasilii  | Pupkin       |   27 | internal_worker |
+| Leon     | Smile        |   31 | internal_worker |
++----------+--------------+------+-----------------+
+16 rows in set (0.00 sec)
+________________________________________________________________________________________________________
+№2
+a)
+
+mysql> select name, surname, age, "external_worker" as type from external_worker
+    -> where age >= 45
+    -> union all
+    -> select name, surname, age, "client" as type from cliente
+    -> where age >= 45
+    -> union all
+    -> select n, surn, age, "internal_worker" as type from internal_worker
+    -> where age >= 45
+    -> ;
++----------+-----------+------+-----------------+
+| name     | surname   | age  | type            |
++----------+-----------+------+-----------------+
+| Violetta | M?ller    |   60 | external_worker |
+| Kazimir  | Kazimov   |   45 | external_worker |
+| Tom      | Smith     |   92 | client          |
+| Alla     | Kirkorova |   66 | internal_worker |
++----------+-----------+------+-----------------+
+4 rows in set (0.00 sec)
+
+
+b)
+
+mysql> select name, surname, age, "external_worker" as type from external_worker
+    -> where surname like "%ov%"
+    -> union all
+    -> select name, surname, age, "client" as type from cliente
+    -> where surname like "%ov%"
+    -> union all
+    -> select n, surn, age, "internal_worker" as type from internal_worker
+    -> where surn like "%ov%"
+    -> ;
++---------+-----------+------+-----------------+
+| name    | surname   | age  | type            |
++---------+-----------+------+-----------------+
+| Peter   | Petrov    |   24 | external_worker |
+| Alina   | Petrova   |   24 | external_worker |
+| Mariya  | Kotikova  |   42 | external_worker |
+| Kazimir | Kazimov   |   45 | external_worker |
+| Alena   | Ivanova   | NULL | client          |
+| Dmitry  | Kuznesov  | NULL | client          |
+| Alla    | Kirkorova |   66 | internal_worker |
++---------+-----------+------+-----------------+
+7 rows in set (0.00 sec)
+________________________________________________________________________________________________________-
+№3
+
+mysql> select name, surname, age, "external_worker" as type from external_worker where age >= 45 union all
+    -> select name, surname, age, "client" as type from cliente where age >= 45 union all
+    -> select n, surn, age, "internal_worker" as type from internal_worker where age >= 45 union 
+    -> select name, surname, age, type from(
+    -> select name, surname, age, "external_worker" as type from external_worker where surname like "%ov%" union all
+    -> select name, surname, age, "client" as type from cliente where surname like "%ov%" union all 
+    -> select n, surn, age, "internal_worker" as type from internal_worker where surn like "%ov%"
+    -> )as sub where type="internal_worker";
++----------+-----------+------+-----------------+
+| name     | surname   | age  | type            |
++----------+-----------+------+-----------------+
+| Violetta | M?ller    |   60 | external_worker |
+| Kazimir  | Kazimov   |   45 | external_worker |
+| Tom      | Smith     |   92 | client          |
+| Alla     | Kirkorova |   66 | internal_worker |
++----------+-----------+------+-----------------+
+4 rows in set (0.00 sec)
+
+
+

@@ -1,4 +1,4 @@
-package lesson34;
+package lesson45.homework.lesson34;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -12,7 +12,7 @@ public class Lesson34 {
                     @Override
                     public Rate get() {
                         return Request.getRate(10, "GBP", "USD");
-                    }
+                    } // suplier возвращает нам какое то значение
                 })
                 .thenApplyAsync(new Function<Rate, Rate>() {
                     @Override

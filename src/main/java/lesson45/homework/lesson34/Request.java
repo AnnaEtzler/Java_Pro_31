@@ -1,11 +1,10 @@
-package lesson34;
+package lesson45.homework.lesson34;
 
 import com.google.gson.Gson;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Request {
